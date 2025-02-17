@@ -11,6 +11,26 @@ app.get("/", (req, res) => {
 
 app.get("/employees", (req, res) => res.json(employees));
 
+app.get("/employees/random", (req, res) => {
+
+    const randomIndex = Math.floor(Math.random() * employees.length);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    
+    res.json(employees[randomIndex]);
+  
+  });
+
+app.get("/employees/:id", (req, res) => {
+    const userId = parseInt(req.params.id);
+    const user = employees.find((user) => user.id === userId);
+  
+    if (user) {
+      res.json(user);
+    } else {
+      res.status(404).json({ message: "Employee not found" });
+    }
+  });
+  
 
 
 app.listen(PORT, () => {
