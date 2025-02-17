@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const employees = require("./database");
+const employees = require("./database.cjs");
 
-app.get("/", (req, res) => res.json("Hello employees!"));
+app.use(express.static('dist'))
+
+app.get("/", (req, res) => {
+    res.sendFile(`${__dirname}/dist/index.html`);
+});
 
 app.get("/employees", (req, res) => res.json(employees));
 
