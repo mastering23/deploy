@@ -19,6 +19,7 @@ app.get("/employees/random", (req, res) => {
     res.json(employees[randomIndex]);
   
   });
+  
 
 app.get("/employees/:id", (req, res) => {
     const userId = parseInt(req.params.id);
@@ -31,6 +32,9 @@ app.get("/employees/:id", (req, res) => {
     }
   });
   
+  app.post('/api/v2',(req,res)=>{
+    console.log("POST is working");
+  });
 
 
 app.listen(PORT, () => {
