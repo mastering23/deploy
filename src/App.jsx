@@ -1,14 +1,15 @@
 import { useState } from 'react'
+import React from 'react';
+import AddEmployee from '../src/components/AddEmployee';
 import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h2>TESTING</h2>
-    </>
-  )
+    <div>
+      <h1>Employee Management System</h1>
+      <AddEmployee />
+    </div>
+  );
 }
 
-export default App
+export default App;
